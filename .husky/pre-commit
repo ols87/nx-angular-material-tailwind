@@ -11,5 +11,5 @@ cd "$(git rev-parse --show-toplevel)"
 
 BRANCH=$(git symbolic-ref --short HEAD)
 
-echo "Running..."
+echo "Running Husky..."
 nx reset && nx affected:lint --base=$BRANCH && nx affected:test --base=$BRANCH && nx affected:e2e --base=$BRANCH
