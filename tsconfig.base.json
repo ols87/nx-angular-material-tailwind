@@ -16,7 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "cli": ["cli/src/index.ts"],
-      "foo-bar": ["components/foo/bar/src/index.ts"],
+      "injectable": ["services/injectable/src/index.ts"],
       "placeholder": ["components/placeholder/src/index.ts"],
       "workspace": ["workspace/index.ts"]
     }

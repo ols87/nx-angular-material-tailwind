@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterModule } from '@angular/router';
+import { InjectableService } from 'injectable';
 import { PlaceholderComponent } from 'placeholder';
 @Component({
   selector: 'example-root',
@@ -13,13 +14,17 @@ import { PlaceholderComponent } from 'placeholder';
 
     <div id="helloWorld" class="p-4">Hello World</div>
 
-    <div id="icon" class="px-4">
-      <i class="icon-[solar--minus-circle-outline]"></i>
-    </div>
+    <i id="icon" class="icon-[solar--minus-circle-outline] px-4"></i>
 
     <placeholder />
 
     <router-outlet></router-outlet>
   `,
 })
-export class ExampleAppComponent {}
+export class ExampleAppComponent {
+  public readonly injectable = inject(InjectableService);
+
+  public log(message: string) {
+    this.injectable.log(message);
+  }
+}

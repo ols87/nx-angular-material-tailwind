@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
 import { PlaceholderComponent } from './placeholder.component';
 
 describe('PlaceholderComponent', () => {
@@ -21,7 +20,13 @@ describe('PlaceholderComponent', () => {
   });
 
   it('should show placeholder', () => {
-    const element = fixture.debugElement.query(By.css('#placeholder'));
-    expect(element).toBeTruthy();
+    const element = document.querySelector('#placeholder');
+    expect(element?.textContent).toContain('Component Placeholder');
+  });
+
+  it('should call injectable', () => {
+    const logSpy = jest.spyOn(component.injectable, 'log');
+    component.log('Hello World from Test');
+    expect(logSpy).toHaveBeenCalledWith('Hello World from Test');
   });
 });

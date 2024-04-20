@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, inject } from '@angular/core';
+import { InjectableService } from 'injectable';
 
 @Component({
   selector: 'placeholder',
@@ -8,4 +9,10 @@ import { CommonModule } from '@angular/common';
   templateUrl: './placeholder.component.html',
   styleUrl: './placeholder.component.scss',
 })
-export class PlaceholderComponent {}
+export class PlaceholderComponent {
+  public readonly injectable = inject(InjectableService);
+
+  public log(message: string) {
+    this.injectable.log(message);
+  }
+}

@@ -47,7 +47,6 @@ export async function appGenerator(tree: Tree, options: AppGeneratorSchema) {
   await formatFiles(tree);
 
   tree.delete(`${componentRoot}/src/app/nx-welcome.component.ts`);
-  tree.delete(`${componentRoot}/src/app/app.component.spec.ts`);
   tree.delete(`${componentRoot}/src/app/app.component.html`);
   tree.delete(`${componentRoot}/src/app/app.component.scss`);
 

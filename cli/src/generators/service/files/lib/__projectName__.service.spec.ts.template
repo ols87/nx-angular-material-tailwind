@@ -1,0 +1,15 @@
+import { <%= serviceName %> } from './<%= projectName %>.service';
+import { TestBed } from '@angular/core/testing';
+
+describe('<%= serviceName %>', () => {
+  let service: <%= serviceName %>;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({});
+    service = TestBed.inject(<%= serviceName %>);
+  });
+
+  it('should be created', () => {
+    expect(service).toBeTruthy();
+  });
+});
