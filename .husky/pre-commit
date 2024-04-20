@@ -1,7 +1,15 @@
 #!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
 
-echo "Husky Running..."
+STAGED_FILES=$(git diff --cached --name-only)
 
-npx lint-staged
+echo "Staged files: $STAGED_FILES"
 
-# npm test
+ROOT_DIR=$(pwd)
+
+cd "$(git rev-parse --show-toplevel)"
+
+BRANCH=$(git symbolic-ref --short HEAD)
+
+echo "Running..."
+nx reset && nx affected:lint --base=$BRANCH && nx affected:test --base=$BRANCH && nx affected:e2e --base=$BRANCH
