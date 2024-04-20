@@ -4,4 +4,8 @@ describe('example-e2e', () => {
   it('should show Hello World', () => {
     cy.get('#helloWorld').contains('Hello World');
   });
+
+  it('should show icon', () => {
+    cy.get('#icon').should('be.visible');
+  });
 });

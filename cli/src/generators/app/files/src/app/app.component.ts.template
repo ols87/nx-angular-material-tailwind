@@ -13,6 +13,10 @@ import { RouterModule } from '@angular/router';
 
     <div id="helloWorld" class="p-4">Hello World</div>
 
+    <div id="icon" class="px-4">
+      <i class="icon-[solar--minus-circle-outline]"></i>
+    </div>
+
     <router-outlet></router-outlet>
   `,
 })
