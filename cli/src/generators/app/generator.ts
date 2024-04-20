@@ -10,11 +10,10 @@ import {
 import { AppGeneratorSchema } from './schema';
 
 export async function appGenerator(tree: Tree, options: AppGeneratorSchema) {
-  const { name, directory } = options;
+  const { name } = options;
 
-  const paths = (directory || name).split('/');
-
-  const camelCasePath = paths
+  const camelCasePath = name
+    .split('-')
     .map((path) => {
       const lowercased = path.toLowerCase();
       return lowercased.charAt(0).toUpperCase() + lowercased.slice(1);
@@ -25,7 +24,7 @@ export async function appGenerator(tree: Tree, options: AppGeneratorSchema) {
 
   await applicationGenerator(tree, {
     name,
-    directory: `apps/${directory ? `${directory}/` : ''}${name}`,
+    directory: `apps/${name}`,
     strict: true,
     standalone: true,
     addTailwind: true,
@@ -36,7 +35,7 @@ export async function appGenerator(tree: Tree, options: AppGeneratorSchema) {
     e2eTestRunner: E2eTestRunner.None,
   });
 
-  const componentRoot = readProjectConfiguration(tree, options.name).root;
+  const componentRoot = readProjectConfiguration(tree, name).root;
 
   generateFiles(
     tree,
@@ -52,13 +51,13 @@ export async function appGenerator(tree: Tree, options: AppGeneratorSchema) {
   tree.delete(`${componentRoot}/src/app/app.component.html`);
   tree.delete(`${componentRoot}/src/app/app.component.scss`);
 
-  const projectConfig = readProjectConfiguration(tree, options.name);
+  const projectConfig = readProjectConfiguration(tree, name);
 
   projectConfig.targets.build.options.stylePreprocessorOptions = {
     includePaths: ['theme'],
   };
 
-  updateProjectConfiguration(tree, options.name, projectConfig);
+  updateProjectConfiguration(tree, name, projectConfig);
 }
 
 export default appGenerator;
