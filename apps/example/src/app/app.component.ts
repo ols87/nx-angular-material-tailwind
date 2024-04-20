@@ -3,12 +3,12 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterModule } from '@angular/router';
 
 @Component({
-  selector: '<%= name %>-root',
+  selector: 'example-root',
   standalone: true,
   imports: [RouterModule, MatToolbarModule],
   template: `
     <mat-toolbar color="primary">
-      <span><%= componentName %></span>
+      <span>ExampleAppComponent</span>
     </mat-toolbar>
 
     <div id="helloWorld" class="p-4">Hello World</div>
@@ -16,4 +16,4 @@ import { RouterModule } from '@angular/router';
     <router-outlet></router-outlet>
   `,
 })
-export class <%= componentName %> {}
+export class ExampleAppComponent {}
