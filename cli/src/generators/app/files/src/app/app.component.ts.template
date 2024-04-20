@@ -7,9 +7,7 @@ import { RouterModule } from '@angular/router';
   standalone: true,
   imports: [RouterModule, MatToolbarModule],
   template: `
-    <mat-toolbar color="primary">
-      <span><%= componentName %></span>
-    </mat-toolbar>
+    <mat-toolbar><%= componentName %></mat-toolbar>
 
     <div id="helloWorld" class="p-4">Hello World</div>
 

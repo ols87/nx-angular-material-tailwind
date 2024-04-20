@@ -8,9 +8,7 @@ import { PlaceholderComponent } from 'placeholder';
   standalone: true,
   imports: [RouterModule, MatToolbarModule, PlaceholderComponent],
   template: `
-    <mat-toolbar color="primary">
-      <span>ExampleAppComponent</span>
-    </mat-toolbar>
+    <mat-toolbar> ExampleAppComponent </mat-toolbar>
 
     <div id="helloWorld" class="p-4">Hello World</div>
 
