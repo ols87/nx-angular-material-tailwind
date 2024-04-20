@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+
+echo "Husky Running..."
+
+npx lint-staged
+
+# npm test
