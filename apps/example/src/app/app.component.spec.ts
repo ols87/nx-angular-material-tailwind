@@ -27,7 +27,7 @@ describe('ExampleAppComponent', () => {
 
   it('should show icon', () => {
     const element = document.querySelector('#icon');
-    expect(element?.classList[0]).toEqual('icon-[solar--minus-circle-outline]');
+    expect(element?.classList[0]).toEqual('icon-[solar--minus-check-outline]');
   });
 
   it('should call injectable', () => {

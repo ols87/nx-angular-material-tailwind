@@ -14,7 +14,7 @@ import { PlaceholderComponent } from 'placeholder';
 
     <div id="helloWorld" class="p-4">Hello World</div>
 
-    <i id="icon" class="icon-[solar--minus-circle-outline] px-4"></i>
+    <i id="icon" class="icon-[solar--check-circle-outline] px-6"></i>
 
     <placeholder />
 
