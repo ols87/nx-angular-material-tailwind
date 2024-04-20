@@ -1,13 +1,13 @@
+import { E2eTestRunner, applicationGenerator } from '@nx/angular/generators';
 import {
   Tree,
   formatFiles,
   generateFiles,
   joinPathFragments,
   readProjectConfiguration,
-  updateProjectConfiguration
+  updateProjectConfiguration,
 } from '@nx/devkit';
 import { AppGeneratorSchema } from './schema';
-import { applicationGenerator } from '@nx/angular/generators';
 
 export async function appGenerator(tree: Tree, options: AppGeneratorSchema) {
   const { name, directory } = options;
@@ -33,6 +33,7 @@ export async function appGenerator(tree: Tree, options: AppGeneratorSchema) {
     prefix: name,
     style: 'scss',
     projectNameAndRootFormat: 'as-provided',
+    e2eTestRunner: E2eTestRunner.None,
   });
 
   const componentRoot = readProjectConfiguration(tree, options.name).root;
@@ -41,7 +42,7 @@ export async function appGenerator(tree: Tree, options: AppGeneratorSchema) {
     tree,
     joinPathFragments(__dirname, 'files'),
     joinPathFragments(componentRoot),
-    { ...options, componentName }
+    { ...options, componentName },
   );
 
   await formatFiles(tree);
@@ -54,7 +55,7 @@ export async function appGenerator(tree: Tree, options: AppGeneratorSchema) {
   const projectConfig = readProjectConfiguration(tree, options.name);
 
   projectConfig.targets.build.options.stylePreprocessorOptions = {
-    "includePaths": ["theme"]
+    includePaths: ['theme'],
   };
 
   updateProjectConfiguration(tree, options.name, projectConfig);
