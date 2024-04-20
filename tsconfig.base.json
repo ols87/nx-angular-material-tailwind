@@ -15,7 +15,10 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "cli": ["cli/src/index.ts"]
+      "cli": ["cli/src/index.ts"],
+      "foo-bar": ["components/foo/bar/src/index.ts"],
+      "placeholder": ["components/placeholder/src/index.ts"],
+      "workspace": ["workspace/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
