@@ -1,4 +1,4 @@
-import { E2eTestRunner, applicationGenerator } from '@nx/angular/generators';
+import { applicationGenerator } from '@nx/angular/generators';
 import {
   Tree,
   formatFiles,
@@ -28,12 +28,11 @@ export async function appGenerator(tree: Tree, options: AppGeneratorSchema) {
     directory: `apps/${directory ? `${directory}/` : ''}${name}`,
     strict: true,
     addTailwind: true,
-    standalone: true,
     routing: true,
     prefix: name,
     style: 'scss',
     projectNameAndRootFormat: 'as-provided',
-    e2eTestRunner: E2eTestRunner.None,
+    // e2eTestRunner: E2eTestRunner.None,
   });
 
   const componentRoot = readProjectConfiguration(tree, options.name).root;
