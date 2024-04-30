@@ -17,5 +17,9 @@
   },
   "[scss]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "files.exclude": {
+    ".angular": true,
+    ".nx": true
   }
 }
