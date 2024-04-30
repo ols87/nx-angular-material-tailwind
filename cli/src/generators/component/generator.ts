@@ -1,6 +1,5 @@
 import { libraryGenerator } from '@nx/angular/generators';
 import { Tree } from '@nx/devkit';
-import { WORKSPACE } from 'workspace';
 import { CreateLibGeneratorSchema } from './schema';
 
 export async function createLibGenerator(
@@ -17,7 +16,7 @@ export async function createLibGenerator(
     standalone: true,
     strict: true,
     style: 'scss',
-    prefix: WORKSPACE.component.prefix,
+    prefix: '',
     displayBlock: true,
     flat: true,
     simpleName: true,

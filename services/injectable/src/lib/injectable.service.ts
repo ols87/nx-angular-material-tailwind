@@ -6,5 +6,6 @@ import { Injectable } from '@angular/core';
 export class InjectableService {
   public log(message: string) {
     console.log(message);
+    return message;
   }
 }
